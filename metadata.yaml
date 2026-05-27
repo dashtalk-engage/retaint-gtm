@@ -1,0 +1,5 @@
+homepage: "https://retaint.com/integrations/gtm"
+categories: ["TAG_MANAGEMENT", "ANALYTICS", "MARKETING"]
+versions:
+  - sha: ""
+    changeNotes: "Initial release. Single template with four modes (Initialize, Track Event, Identify User, Product Index). Supports productview, categoryview, search, addtocart, checkoutstarted, buy, order, identify. Optional consent gating (Google Consent Mode v2 + custom variable). Debug logging via per-tag checkbox or window.retaintDebug global."

@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Retaint — GTM Diagnostic</title>
+  <style>
+    :root {
+      --bg: #0e1116; --panel: #161b22; --border: #30363d;
+      --text: #e6edf3; --muted: #8b949e;
+      --ok: #3fb950; --warn: #d29922; --err: #f85149; --accent: #58a6ff;
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--bg); color: var(--text);
+      font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+    .wrap { max-width: 720px; margin: 48px auto; padding: 0 20px; }
+    h1 { font-size: 24px; margin: 0 0 4px; letter-spacing: -0.01em; }
+    .sub { color: var(--muted); margin: 0 0 32px; }
+    .panel { background: var(--panel); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+    label { display: block; font-weight: 600; margin-bottom: 8px; }
+    input[type=text] { width: 100%; padding: 10px 12px; background: #0d1117;
+      color: var(--text); border: 1px solid var(--border); border-radius: 6px;
+      font: 14px var(--mono); }
+    input[type=text]:focus { outline: none; border-color: var(--accent); }
+    button { display: inline-block; padding: 10px 18px; background: var(--accent);
+      color: #0e1116; border: 0; border-radius: 6px; font-weight: 600; cursor: pointer;
+      font-size: 14px; }
+    button:hover { filter: brightness(1.1); }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .checks { list-style: none; padding: 0; margin: 0; }
+    .checks li { padding: 12px 0; border-top: 1px solid var(--border);
+      display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; }
+    .checks li:first-child { border-top: 0; }
+    .checks .name { font-weight: 600; }
+    .checks .detail { color: var(--muted); font: 13px/1.5 var(--mono);
+      margin-top: 4px; word-break: break-all; }
+    .badge { width: 22px; height: 22px; border-radius: 50%; display: inline-flex;
+      align-items: center; justify-content: center; font-weight: 700; color: #0e1116;
+      font-size: 13px; }
+    .badge.ok    { background: var(--ok); }
+    .badge.warn  { background: var(--warn); }
+    .badge.err   { background: var(--err); }
+    .badge.idle  { background: var(--border); color: var(--muted); }
+    .row { display: flex; gap: 12px; align-items: end; }
+    .row > div { flex: 1; }
+    .hint { color: var(--muted); font-size: 13px; margin-top: 8px; }
+    code { font: 13px var(--mono); background: #0d1117; padding: 1px 6px;
+      border-radius: 4px; border: 1px solid var(--border); }
+    footer { color: var(--muted); font-size: 13px; margin-top: 24px; text-align: center; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Retaint — GTM Diagnostic</h1>
+    <p class="sub">Verify that your Org ID is valid and your network can reach the Retaint tracker before you wire up GTM.</p>
+
+    <div class="panel">
+      <div class="row">
+        <div>
+          <label for="org">Retaint Org ID</label>
+          <input id="org" type="text" placeholder="e.g. ZWW2hX4SxCkJ64cVgyD2g" autocomplete="off" spellcheck="false" />
+        </div>
+        <div style="flex: 0 0 auto;">
+          <button id="run">Run diagnostic</button>
+        </div>
+      </div>
+      <p class="hint">Find your Org ID in your Retaint dashboard under <strong>Settings → Workspace</strong>. The value never leaves your browser except as part of the test event below.</p>
+    </div>
+
+    <div class="panel">
+      <ul class="checks" id="checks">
+        <li>
+          <span class="badge idle" data-check="format">—</span>
+          <div>
+            <div class="name">Org ID format</div>
+            <div class="detail" data-detail="format">Awaiting input.</div>
+          </div>
+        </li>
+        <li>
+          <span class="badge idle" data-check="snippet">—</span>
+          <div>
+            <div class="name">Tracker snippet loads</div>
+            <div class="detail" data-detail="snippet">Will fetch <code>https://tracker.retaint.com/retaint.wl.js</code> and confirm it runs.</div>
+          </div>
+        </li>
+        <li>
+          <span class="badge idle" data-check="event">—</span>
+          <div>
+            <div class="name">Test event accepted</div>
+            <div class="detail" data-detail="event">Will POST a <code>gtm_diagnostic</code> event to <code>/rest/v1/learn/event</code> and check for HTTP 2xx.</div>
+          </div>
+        </li>
+        <li>
+          <span class="badge idle" data-check="cookie">—</span>
+          <div>
+            <div class="name">BASE_LEARNER_ID cookie set</div>
+            <div class="detail" data-detail="cookie">Confirms the snippet successfully created the anonymous visitor cookie.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <footer>
+      Retaint integrations · <a href="https://retaint.com/integrations/gtm">GTM setup guide</a>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var ORG_REGEX = /^[A-Za-z0-9\-_]{10,64}$/;
+      var EVENT_ENDPOINT = 'https://tracker.retaint.com/rest/v1/learn/event';
+      var SNIPPET_URL = 'https://tracker.retaint.com/retaint.wl.js';
+      var COOKIE_NAME = 'BASE_LEARNER_ID';
+
+      var $ = function (sel) { return document.querySelector(sel); };
+      var $$ = function (sel) { return document.querySelectorAll(sel); };
+
+      function setCheck(name, status, detail) {
+        var badge = document.querySelector('[data-check="' + name + '"]');
+        var d = document.querySelector('[data-detail="' + name + '"]');
+        badge.className = 'badge ' + status;
+        badge.textContent = status === 'ok' ? '✓' : status === 'err' ? '✗' : status === 'warn' ? '!' : '—';
+        if (detail) d.textContent = detail;
+      }
+
+      function readCookie(name) {
+        var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+        return match ? decodeURIComponent(match[1]) : '';
+      }
+
+      function loadSnippet(orgId) {
+        return new Promise(function (resolve, reject) {
+          window.BaseFtObject = 'retaint';
+          window.retaint = window.retaint || function () {
+            (window.retaint.q = window.retaint.q || []).push(arguments);
+          };
+          window.retaint.l = +new Date();
+          window.retaint.h = SNIPPET_URL;
+          window.retaint('configure', orgId);
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = SNIPPET_URL;
+          s.onload = function () { resolve(); };
+          s.onerror = function () { reject(new Error('script load failed (CSP block, network error, or blocked by an extension)')); };
+          document.head.appendChild(s);
+        });
+      }
+
+      function fireTestEvent(orgId) {
+        var url = EVENT_ENDPOINT + '?org_token=' + encodeURIComponent(orgId);
+        var body = JSON.stringify({
+          eventName: 'gtm_diagnostic',
+          eventVal: 'browser_diagnostic',
+          eventCategory: 'EXTERNAL',
+          userId: 'retaint_diag_' + Math.random().toString(36).slice(2, 14),
+          is_active: true,
+          source: 'web'
+        });
+        return fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: body,
+          mode: 'cors',
+          credentials: 'omit'
+        });
+      }
+
+      function waitForCookie(timeoutMs) {
+        return new Promise(function (resolve) {
+          var start = Date.now();
+          var iv = setInterval(function () {
+            var v = readCookie(COOKIE_NAME);
+            if (v) { clearInterval(iv); resolve(v); return; }
+            if (Date.now() - start > timeoutMs) { clearInterval(iv); resolve(''); }
+          }, 100);
+        });
+      }
+
+      async function run() {
+        $('#run').disabled = true;
+        var orgId = $('#org').value.trim();
+
+        // 1. Format check
+        if (!ORG_REGEX.test(orgId)) {
+          setCheck('format', 'err', 'Invalid format. Expected 10–64 characters, letters/numbers/dash/underscore.');
+          $('#run').disabled = false;
+          return;
+        }
+        setCheck('format', 'ok', 'Looks valid: ' + orgId.slice(0, 4) + '••••' + orgId.slice(-2));
+
+        // 2. Snippet load
+        setCheck('snippet', 'idle', 'Loading…');
+        try {
+          await loadSnippet(orgId);
+          setCheck('snippet', 'ok', 'Snippet loaded from ' + SNIPPET_URL);
+        } catch (e) {
+          setCheck('snippet', 'err', e.message);
+        }
+
+        // 3. Test event
+        setCheck('event', 'idle', 'Sending…');
+        try {
+          var res = await fireTestEvent(orgId);
+          if (res.ok) {
+            setCheck('event', 'ok', 'HTTP ' + res.status + ' — event accepted by Retaint.');
+          } else if (res.status === 401 || res.status === 403) {
+            setCheck('event', 'err', 'HTTP ' + res.status + ' — Org ID was rejected. Double-check it in your Retaint dashboard.');
+          } else {
+            setCheck('event', 'warn', 'HTTP ' + res.status + ' — unexpected status. The event may still have been recorded.');
+          }
+        } catch (e) {
+          setCheck('event', 'err', 'Request failed: ' + e.message + '. If your network blocks tracker.retaint.com, the event tags will fail in production too.');
+        }
+
+        // 4. Cookie check (only meaningful if snippet loaded)
+        setCheck('cookie', 'idle', 'Waiting for cookie…');
+        var cookie = await waitForCookie(3000);
+        if (cookie) {
+          setCheck('cookie', 'ok', COOKIE_NAME + '=' + cookie.slice(0, 8) + '… (truncated)');
+        } else {
+          setCheck('cookie', 'warn', 'No cookie set within 3s. The snippet may have failed silently, or your browser is blocking third-party cookies for tracker.retaint.com.');
+        }
+
+        $('#run').disabled = false;
+      }
+
+      $('#run').addEventListener('click', run);
+      $('#org').addEventListener('keydown', function (e) { if (e.key === 'Enter') run(); });
+    })();
+  </script>
+</body>
+</html>

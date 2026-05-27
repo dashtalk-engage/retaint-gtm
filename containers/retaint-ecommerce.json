@@ -1,0 +1,1098 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-05-27 00:00:00",
+  "containerVersion": {
+    "accountId": "0",
+    "containerId": "0",
+    "containerVersionId": "0",
+    "name": "Retaint Ecommerce Starter v1.0.0",
+    "description": "Drop-in Retaint integration for GA4-style ecommerce dataLayer. Sets up Initialize on All Pages plus event tags for view_item, view_item_list, search, add_to_cart, begin_checkout, purchase, and retaint_identify. After import: set the 'Retaint - Org ID' Constant variable, then publish. Docs: https://retaint.com/integrations/gtm",
+    "container": {
+      "accountId": "0",
+      "containerId": "0",
+      "name": "Retaint Ecommerce Starter",
+      "publicId": "GTM-XXXXXXX",
+      "usageContext": [
+        "WEB"
+      ],
+      "fingerprint": "0",
+      "tagManagerUrl": "",
+      "features": {
+        "supportUserPermissions": true,
+        "supportEnvironments": true,
+        "supportWorkspaces": true,
+        "supportGtagConfigs": true,
+        "supportBuiltInVariables": true,
+        "supportClients": true,
+        "supportFolders": true,
+        "supportTags": true,
+        "supportTemplates": true,
+        "supportTriggers": true,
+        "supportVariables": true,
+        "supportVersions": true,
+        "supportZones": true,
+        "supportTransformations": true
+      }
+    },
+    "folder": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "folderId": "1",
+        "name": "Retaint",
+        "fingerprint": "0"
+      }
+    ],
+    "builtInVariable": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "type": "pageUrl",
+        "name": "Page URL"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "type": "pageHostname",
+        "name": "Page Hostname"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "type": "pagePath",
+        "name": "Page Path"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "type": "referrer",
+        "name": "Referrer"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "type": "event",
+        "name": "Event"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "type": "browserLanguage",
+        "name": "Browser Language"
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "1",
+        "name": "Retaint - Org ID",
+        "type": "c",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "value",
+            "value": "PASTE_YOUR_ORG_ID_HERE"
+          }
+        ],
+        "notes": "REQUIRED. Paste your Retaint Org ID here after importing the container. Find it in your Retaint dashboard under Settings → Workspace."
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "2",
+        "name": "DLV - ecommerce.items",
+        "type": "v",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "ecommerce.items"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "3",
+        "name": "DLV - ecommerce.value",
+        "type": "v",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "ecommerce.value"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "4",
+        "name": "DLV - ecommerce.transaction_id",
+        "type": "v",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "ecommerce.transaction_id"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "5",
+        "name": "DLV - ecommerce.items.0.item_id",
+        "type": "v",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "ecommerce.items.0.item_id"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "6",
+        "name": "DLV - ecommerce.items.0.item_url",
+        "type": "v",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "ecommerce.items.0.item_url"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "7",
+        "name": "DLV - search_term",
+        "type": "v",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "search_term"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "8",
+        "name": "DLV - user.email",
+        "type": "v",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "user.email"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "9",
+        "name": "DLV - user.phone",
+        "type": "v",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "user.phone"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "10",
+        "name": "DLV - user.fullName",
+        "type": "v",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "user.fullName"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "11",
+        "name": "CJS - Retaint Product Reference",
+        "type": "jsm",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "notes": "Fallback chain for productview/addtocart eventVal: item_url -> item_id -> Page URL.",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "javascript",
+            "value": "function(){var u={{DLV - ecommerce.items.0.item_url}};if(u)return u;var i={{DLV - ecommerce.items.0.item_id}};if(i)return i;return {{Page URL}};}"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "12",
+        "name": "CJS - Retaint Product IDs",
+        "type": "jsm",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "notes": "Flattens ecommerce.items[] into an array of item_id strings for the 'buy' event.",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "javascript",
+            "value": "function(){var items={{DLV - ecommerce.items}}||[];var out=[];for(var i=0;i<items.length;i++){var id=items[i]&&(items[i].item_id||items[i].id);if(id)out.push(String(id));}return out;}"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "13",
+        "name": "CJS - Retaint Checkout Payload",
+        "type": "jsm",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "notes": "Builds the checkoutstarted payload from GA4 ecommerce dataLayer: {pageUrl, totalOrderValue, itemCount, items:[{productId,quantity}]}.",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "javascript",
+            "value": "function(){var items={{DLV - ecommerce.items}}||[];var mapped=[];var total=0;for(var i=0;i<items.length;i++){var it=items[i]||{};var pid=it.item_id||it.id||'';var qty=it.quantity||1;if(pid)mapped.push({productId:String(pid),quantity:Number(qty)});total+=Number(qty);}return {pageUrl:{{Page URL}},totalOrderValue:String({{DLV - ecommerce.value}}||''),itemCount:total,items:mapped};}"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "variableId": "14",
+        "name": "CJS - Retaint Order Payload",
+        "type": "jsm",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "notes": "Builds the 'order' event payload from GA4 purchase dataLayer.",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "javascript",
+            "value": "function(){return {orderId:String({{DLV - ecommerce.transaction_id}}||''),totalOrderValue:String({{DLV - ecommerce.value}}||'')};}"
+          }
+        ]
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "100",
+        "name": "All Pages — Page View",
+        "type": "PAGEVIEW",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "101",
+        "name": "Custom Event — view_item",
+        "type": "CUSTOM_EVENT",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "view_item"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "102",
+        "name": "Custom Event — view_item_list",
+        "type": "CUSTOM_EVENT",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "view_item_list"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "103",
+        "name": "Custom Event — search",
+        "type": "CUSTOM_EVENT",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "search"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "104",
+        "name": "Custom Event — add_to_cart",
+        "type": "CUSTOM_EVENT",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "add_to_cart"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "105",
+        "name": "Custom Event — begin_checkout",
+        "type": "CUSTOM_EVENT",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "begin_checkout"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "106",
+        "name": "Custom Event — purchase",
+        "type": "CUSTOM_EVENT",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "purchase"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "107",
+        "name": "Custom Event — retaint_identify",
+        "type": "CUSTOM_EVENT",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "retaint_identify"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "tag": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "200",
+        "name": "Retaint — Initialize",
+        "type": "cvt_0_1",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "100"
+        ],
+        "tagFiringOption": "ONCE_PER_LOAD",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        },
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagType",
+            "value": "init"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "orgId",
+            "value": "{{Retaint - Org ID}}"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "snippetUrl",
+            "value": "https://tracker.retaint.com/retaint.wl.js"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "waitForConsent",
+            "value": "false"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "debug",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "201",
+        "name": "Retaint — Identify",
+        "type": "cvt_0_1",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "107"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        },
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagType",
+            "value": "identify"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "identifyEmail",
+            "value": "{{DLV - user.email}}"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "identifyPhone",
+            "value": "{{DLV - user.phone}}"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "identifyFullName",
+            "value": "{{DLV - user.fullName}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "debug",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "202",
+        "name": "Retaint — Product Index",
+        "type": "cvt_0_1",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "101"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        },
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagType",
+            "value": "index"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "indexProductId",
+            "value": "{{DLV - ecommerce.items.0.item_id}}"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "indexTitle",
+            "value": "{{DLV - ecommerce.items.0.item_name}}"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "indexCanonicalUrl",
+            "value": "{{Page URL}}"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "indexPrice",
+            "value": "{{DLV - ecommerce.items.0.price}}"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "indexImage",
+            "value": "{{DLV - ecommerce.items.0.image_url}}"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "indexLanguage",
+            "value": "{{Browser Language}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "debug",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "203",
+        "name": "Retaint — Product View",
+        "type": "cvt_0_1",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "101"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        },
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagType",
+            "value": "track"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "productview"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueType",
+            "value": "string"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueString",
+            "value": "{{CJS - Retaint Product Reference}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "debug",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "204",
+        "name": "Retaint — Category View",
+        "type": "cvt_0_1",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "102"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        },
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagType",
+            "value": "track"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "categoryview"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueType",
+            "value": "string"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueString",
+            "value": "{{Page URL}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "debug",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "205",
+        "name": "Retaint — Search",
+        "type": "cvt_0_1",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "103"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        },
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagType",
+            "value": "track"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "search"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueType",
+            "value": "string"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueString",
+            "value": "{{DLV - search_term}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "debug",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "206",
+        "name": "Retaint — Add to Cart",
+        "type": "cvt_0_1",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "104"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        },
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagType",
+            "value": "track"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "addtocart"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueType",
+            "value": "string"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueString",
+            "value": "{{CJS - Retaint Product Reference}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "debug",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "207",
+        "name": "Retaint — Checkout Started",
+        "type": "cvt_0_1",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "105"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        },
+        "notes": "Sends a string-form payload (JSON-stringified) because the Track Event 'object' mode is for flat key/value pairs only. The receiving end parses the JSON.",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagType",
+            "value": "track"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "checkoutstarted"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueType",
+            "value": "string"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueString",
+            "value": "{{CJS - Retaint Checkout Payload}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "debug",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "208",
+        "name": "Retaint — Buy",
+        "type": "cvt_0_1",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "106"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        },
+        "notes": "Sends the flattened product-ID array from ecommerce.items[]. Track Event 'array' mode expects SIMPLE_TABLE rows, so this tag uses string mode with the CJS-built array stringified.",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagType",
+            "value": "track"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "buy"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueType",
+            "value": "string"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueString",
+            "value": "{{CJS - Retaint Product IDs}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "debug",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "209",
+        "name": "Retaint — Order",
+        "type": "cvt_0_1",
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "106"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NOT_SET"
+        },
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagType",
+            "value": "track"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "order"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueType",
+            "value": "string"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "valueString",
+            "value": "{{CJS - Retaint Order Payload}}"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "debug",
+            "value": "false"
+          }
+        ]
+      }
+    ],
+    "customTemplate": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "templateId": "1",
+        "name": "Retaint",
+        "fingerprint": "0",
+        "templateData": "___INFO___\n\n{\n  \"type\": \"TAG\",\n  \"id\": \"cvt_temp_public_id\",\n  \"version\": 1,\n  \"securityGroups\": [],\n  \"displayName\": \"Retaint\",\n  \"brand\": {\n    \"id\": \"brand_dummy\",\n    \"displayName\": \"Retaint\",\n    \"thumbnail\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=\"\n  },\n  \"description\": \"Send customer events from your site to Retaint for retention marketing — productview, addtocart, checkout, purchase, identify. Use the Initialize mode once on All Pages, then add Track / Identify / Product Index tags on your dataLayer events.\",\n  \"containerContexts\": [\"WEB\"]\n}\n\n\n___TEMPLATE_PARAMETERS___\n\n[\n  {\n    \"type\": \"SELECT\",\n    \"name\": \"tagType\",\n    \"displayName\": \"Tag Type\",\n    \"macrosInSelect\": false,\n    \"selectItems\": [\n      { \"value\": \"init\",     \"displayValue\": \"Initialize (load Retaint snippet + configure)\" },\n      { \"value\": \"track\",    \"displayValue\": \"Track Event\" },\n      { \"value\": \"identify\", \"displayValue\": \"Identify User\" },\n      { \"value\": \"index\",    \"displayValue\": \"Product Index\" }\n    ],\n    \"simpleValueType\": true,\n    \"defaultValue\": \"init\",\n    \"help\": \"Pick what this tag should do. Most containers need exactly one Initialize tag (firing on All Pages) plus one or more Track/Identify/Product Index tags.\"\n  },\n\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"orgId\",\n    \"displayName\": \"Retaint Org ID\",\n    \"simpleValueType\": true,\n    \"valueValidators\": [\n      { \"type\": \"NON_EMPTY\" },\n      { \"type\": \"REGEX\", \"args\": [\"^[A-Za-z0-9\\\\-_]{10,64}$\"], \"errorMessage\": \"Org ID must be 10–64 characters, letters/numbers/dash/underscore only.\" }\n    ],\n    \"help\": \"Paste your Org ID from the Retaint dashboard (Settings → Workspace).\",\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"init\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"snippetUrl\",\n    \"displayName\": \"Snippet URL\",\n    \"simpleValueType\": true,\n    \"defaultValue\": \"https://tracker.retaint.com/retaint.wl.js\",\n    \"help\": \"Leave the default unless Retaint support told you otherwise.\",\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"init\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"CHECKBOX\",\n    \"name\": \"waitForConsent\",\n    \"checkboxText\": \"Wait for consent before loading the Retaint snippet\",\n    \"simpleValueType\": true,\n    \"defaultValue\": false,\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"init\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"consentVariable\",\n    \"displayName\": \"Consent variable\",\n    \"simpleValueType\": true,\n    \"help\": \"A GTM variable (e.g. {{Marketing Consent}}) that resolves truthy when the visitor has given marketing consent. Snippet load is deferred until then. Leave blank to auto-detect Google Consent Mode v2.\",\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\",        \"paramValue\": \"init\", \"type\": \"EQUALS\" },\n      { \"paramName\": \"waitForConsent\", \"paramValue\": true,   \"type\": \"EQUALS\" }\n    ]\n  },\n\n  {\n    \"type\": \"SELECT\",\n    \"name\": \"eventName\",\n    \"displayName\": \"Event name\",\n    \"macrosInSelect\": false,\n    \"selectItems\": [\n      { \"value\": \"productview\",     \"displayValue\": \"productview\" },\n      { \"value\": \"categoryview\",    \"displayValue\": \"categoryview\" },\n      { \"value\": \"search\",          \"displayValue\": \"search\" },\n      { \"value\": \"addtocart\",       \"displayValue\": \"addtocart\" },\n      { \"value\": \"checkoutstarted\", \"displayValue\": \"checkoutstarted\" },\n      { \"value\": \"buy\",             \"displayValue\": \"buy\" },\n      { \"value\": \"order\",           \"displayValue\": \"order\" },\n      { \"value\": \"custom\",          \"displayValue\": \"Custom…\" }\n    ],\n    \"simpleValueType\": true,\n    \"defaultValue\": \"productview\",\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"track\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"customEventName\",\n    \"displayName\": \"Custom event name\",\n    \"simpleValueType\": true,\n    \"valueValidators\": [\n      { \"type\": \"NON_EMPTY\" },\n      { \"type\": \"REGEX\", \"args\": [\"^[a-z][a-z0-9_]{0,49}$\"], \"errorMessage\": \"Lowercase letters/numbers/underscores, must start with a letter, max 50 chars.\" }\n    ],\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\",   \"paramValue\": \"track\",  \"type\": \"EQUALS\" },\n      { \"paramName\": \"eventName\", \"paramValue\": \"custom\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"SELECT\",\n    \"name\": \"valueType\",\n    \"displayName\": \"Value type\",\n    \"macrosInSelect\": false,\n    \"selectItems\": [\n      { \"value\": \"string\", \"displayValue\": \"String (URL, search term, etc.)\" },\n      { \"value\": \"array\",  \"displayValue\": \"Array of IDs (for 'buy')\" },\n      { \"value\": \"object\", \"displayValue\": \"Object (for 'order', 'checkoutstarted')\" }\n    ],\n    \"simpleValueType\": true,\n    \"defaultValue\": \"string\",\n    \"help\": \"How is the event value shaped? The default matches the selected event name — only change if you're sending a custom payload.\",\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"track\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"valueString\",\n    \"displayName\": \"Value\",\n    \"simpleValueType\": true,\n    \"help\": \"The single string value for the event. Typically bound to a Variable like {{CJS - Retaint Product Reference}} or {{Page URL}}.\",\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\",   \"paramValue\": \"track\",  \"type\": \"EQUALS\" },\n      { \"paramName\": \"valueType\", \"paramValue\": \"string\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"SIMPLE_TABLE\",\n    \"name\": \"valueArray\",\n    \"displayName\": \"Value (array of IDs)\",\n    \"simpleTableColumns\": [\n      {\n        \"defaultValue\": \"\",\n        \"displayName\": \"ID\",\n        \"name\": \"id\",\n        \"type\": \"TEXT\",\n        \"isUnique\": false\n      }\n    ],\n    \"help\": \"Each row is one ID. Typically bound to a Custom JS Variable that flattens ecommerce.items[] for the 'buy' event.\",\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\",   \"paramValue\": \"track\", \"type\": \"EQUALS\" },\n      { \"paramName\": \"valueType\", \"paramValue\": \"array\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"SIMPLE_TABLE\",\n    \"name\": \"valueObject\",\n    \"displayName\": \"Value (key/value pairs)\",\n    \"simpleTableColumns\": [\n      { \"defaultValue\": \"\", \"displayName\": \"Key\",   \"name\": \"key\",   \"type\": \"TEXT\", \"isUnique\": true },\n      { \"defaultValue\": \"\", \"displayName\": \"Value\", \"name\": \"value\", \"type\": \"TEXT\", \"isUnique\": false }\n    ],\n    \"help\": \"Object payload — e.g. orderId, totalOrderValue, email, phone, fullName for the 'order' event.\",\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\",   \"paramValue\": \"track\",  \"type\": \"EQUALS\" },\n      { \"paramName\": \"valueType\", \"paramValue\": \"object\", \"type\": \"EQUALS\" }\n    ]\n  },\n\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"identifyEmail\",\n    \"displayName\": \"Email\",\n    \"simpleValueType\": true,\n    \"help\": \"Typically bound to {{DLV - user.email}}.\",\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"identify\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"identifyPhone\",\n    \"displayName\": \"Phone\",\n    \"simpleValueType\": true,\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"identify\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"identifyFullName\",\n    \"displayName\": \"Full name\",\n    \"simpleValueType\": true,\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"identify\", \"type\": \"EQUALS\" }\n    ]\n  },\n\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"indexProductId\",\n    \"displayName\": \"Product ID\",\n    \"simpleValueType\": true,\n    \"valueValidators\": [{ \"type\": \"NON_EMPTY\" }],\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"index\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"indexTitle\",\n    \"displayName\": \"Title\",\n    \"simpleValueType\": true,\n    \"valueValidators\": [{ \"type\": \"NON_EMPTY\" }],\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"index\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"indexCanonicalUrl\",\n    \"displayName\": \"Canonical URL\",\n    \"simpleValueType\": true,\n    \"valueValidators\": [{ \"type\": \"NON_EMPTY\" }],\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"index\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"indexPrice\",\n    \"displayName\": \"Price\",\n    \"simpleValueType\": true,\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"index\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"indexDescription\",\n    \"displayName\": \"Description\",\n    \"simpleValueType\": true,\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"index\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"indexImage\",\n    \"displayName\": \"Image URL\",\n    \"simpleValueType\": true,\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"index\", \"type\": \"EQUALS\" }\n    ]\n  },\n  {\n    \"type\": \"TEXT\",\n    \"name\": \"indexLanguage\",\n    \"displayName\": \"Language\",\n    \"simpleValueType\": true,\n    \"help\": \"Two-letter ISO code. Typically bound to {{Browser Language}}.\",\n    \"enablingConditions\": [\n      { \"paramName\": \"tagType\", \"paramValue\": \"index\", \"type\": \"EQUALS\" }\n    ]\n  },\n\n  {\n    \"type\": \"CHECKBOX\",\n    \"name\": \"debug\",\n    \"checkboxText\": \"Debug logging (console)\",\n    \"simpleValueType\": true,\n    \"defaultValue\": false,\n    \"help\": \"Logs every call to the browser console. Also enabled globally by setting window.retaintDebug = true.\"\n  }\n]\n\n\n___SANDBOXED_JS_FOR_WEB_TEMPLATE___\n\nconst setInWindow       = require('setInWindow');\nconst copyFromWindow    = require('copyFromWindow');\nconst createQueue       = require('createQueue');\nconst injectScript      = require('injectScript');\nconst logToConsole      = require('logToConsole');\nconst getTimestampMillis = require('getTimestampMillis');\nconst makeNumber        = require('makeNumber');\n\nconst TEMPLATE_VERSION = '1.0.0';\n\n// ---- helpers -------------------------------------------------------------\n\nconst debugEnabled = function () {\n  return data.debug === true || copyFromWindow('retaintDebug') === true;\n};\n\nconst log = function () {\n  if (!debugEnabled()) return;\n  // Convert arguments to an array logToConsole can spread\n  const args = ['[Retaint]'];\n  for (let i = 0; i < arguments.length; i++) args.push(arguments[i]);\n  logToConsole.apply(null, args);\n};\n\nconst ensureBootstrapGlobals = function () {\n  setInWindow('BaseFtObject', 'retaint', false);\n  if (!copyFromWindow('retaint.l')) {\n    setInWindow('retaint.l', getTimestampMillis(), true);\n  }\n};\n\nconst consentGranted = function () {\n  if (!data.waitForConsent) return true;\n  if (data.consentVariable !== undefined && data.consentVariable !== '') {\n    // GTM resolves the variable before the field reaches us, so we just check truthiness\n    return !!data.consentVariable;\n  }\n  // Auto-detect Google Consent Mode v2: window.google_tag_data.ics.entries.ad_user_data === 'granted'\n  const gcm = copyFromWindow('google_tag_data');\n  if (gcm && gcm.ics && gcm.ics.entries && gcm.ics.entries.ad_user_data) {\n    return gcm.ics.entries.ad_user_data === 'granted';\n  }\n  return false;\n};\n\nconst normalizeTrackValue = function () {\n  if (data.valueType === 'string') {\n    return data.valueString || '';\n  }\n  if (data.valueType === 'array') {\n    const rows = data.valueArray || [];\n    const out = [];\n    for (let i = 0; i < rows.length; i++) {\n      if (rows[i] && rows[i].id !== '' && rows[i].id !== undefined) {\n        out.push(rows[i].id);\n      }\n    }\n    return out;\n  }\n  if (data.valueType === 'object') {\n    const rows = data.valueObject || [];\n    const out = {};\n    for (let i = 0; i < rows.length; i++) {\n      const row = rows[i];\n      if (row && row.key) {\n        // Best-effort numeric coercion for fields that look like numbers (totalOrderValue, itemCount)\n        const n = makeNumber(row.value);\n        out[row.key] = (n === n && row.value !== '' && row.value !== undefined) ? n : row.value;\n      }\n    }\n    return out;\n  }\n  return '';\n};\n\nconst stripEmpty = function (obj) {\n  const out = {};\n  for (const k in obj) {\n    if (obj[k] !== undefined && obj[k] !== null && obj[k] !== '') {\n      out[k] = obj[k];\n    }\n  }\n  return out;\n};\n\n// ---- mode handlers -------------------------------------------------------\n\nconst runInit = function () {\n  const orgId = data.orgId;\n  const snippetUrl = data.snippetUrl || 'https://tracker.retaint.com/retaint.wl.js';\n\n  if (!orgId) {\n    log('init aborted: missing orgId');\n    data.gtmOnFailure();\n    return;\n  }\n\n  ensureBootstrapGlobals();\n  setInWindow('retaint.h', snippetUrl, true);\n\n  const retaintQueue = createQueue('retaint');\n  retaintQueue('configure', orgId);\n  log('init', 'org=' + orgId, 'snippet=' + snippetUrl, 'tpl=' + TEMPLATE_VERSION);\n\n  if (!consentGranted()) {\n    log('init: consent not granted, deferring script load');\n    data.gtmOnSuccess();\n    return;\n  }\n\n  injectScript(snippetUrl, data.gtmOnSuccess, data.gtmOnFailure, snippetUrl);\n};\n\nconst runTrack = function () {\n  const eventName = data.eventName === 'custom' ? data.customEventName : data.eventName;\n  if (!eventName) {\n    log('track aborted: missing eventName');\n    data.gtmOnFailure();\n    return;\n  }\n  const value = normalizeTrackValue();\n  ensureBootstrapGlobals();\n  const retaintQueue = createQueue('retaint');\n  retaintQueue('track', eventName, value);\n  log('track', 'event=' + eventName, value);\n  data.gtmOnSuccess();\n};\n\nconst runIdentify = function () {\n  const traits = stripEmpty({\n    email:    data.identifyEmail,\n    phone:    data.identifyPhone,\n    fullName: data.identifyFullName\n  });\n  // Identify with no traits is a no-op — bail before pushing\n  let hasAny = false;\n  for (const _ in traits) { hasAny = true; break; }\n  if (!hasAny) {\n    log('identify skipped: no traits provided');\n    data.gtmOnSuccess();\n    return;\n  }\n  ensureBootstrapGlobals();\n  const retaintQueue = createQueue('retaint');\n  retaintQueue('identify', traits);\n  log('identify', traits);\n  data.gtmOnSuccess();\n};\n\nconst runIndex = function () {\n  const product = stripEmpty({\n    productId:    data.indexProductId,\n    title:        data.indexTitle,\n    canonicalUrl: data.indexCanonicalUrl,\n    price:        data.indexPrice,\n    description:  data.indexDescription,\n    image:        data.indexImage,\n    language:     data.indexLanguage\n  });\n  if (!product.productId || !product.title || !product.canonicalUrl) {\n    log('index aborted: missing required field');\n    data.gtmOnFailure();\n    return;\n  }\n  ensureBootstrapGlobals();\n  const retaintQueue = createQueue('retaint');\n  retaintQueue('index', product);\n  log('index', product);\n  data.gtmOnSuccess();\n};\n\n// ---- dispatch ------------------------------------------------------------\n\nif (data.tagType === 'init')          runInit();\nelse if (data.tagType === 'track')    runTrack();\nelse if (data.tagType === 'identify') runIdentify();\nelse if (data.tagType === 'index')    runIndex();\nelse {\n  log('unknown tagType:', data.tagType);\n  data.gtmOnFailure();\n}\n\n\n___WEB_PERMISSIONS___\n\n[\n  {\n    \"instance\": {\n      \"key\": { \"publicId\": \"inject_script\", \"versionId\": \"1\" },\n      \"param\": [\n        { \"key\": \"urls\", \"value\": { \"type\": 2, \"listItem\": [\n          { \"type\": 1, \"string\": \"https://tracker.retaint.com/*\" }\n        ]}}\n      ]\n    },\n    \"clientAnnotations\": { \"isEditedByUser\": true },\n    \"isRequired\": true\n  },\n  {\n    \"instance\": {\n      \"key\": { \"publicId\": \"access_globals\", \"versionId\": \"1\" },\n      \"param\": [\n        { \"key\": \"keys\", \"value\": { \"type\": 2, \"listItem\": [\n          { \"type\": 3, \"mapKey\": [\n            { \"type\": 1, \"string\": \"key\" }, { \"type\": 1, \"string\": \"read\" },\n            { \"type\": 1, \"string\": \"write\" }, { \"type\": 1, \"string\": \"execute\" }\n          ], \"mapValue\": [\n            { \"type\": 1, \"string\": \"retaint\" }, { \"type\": 8, \"boolean\": true },\n            { \"type\": 8, \"boolean\": true }, { \"type\": 8, \"boolean\": true }\n          ]},\n          { \"type\": 3, \"mapKey\": [\n            { \"type\": 1, \"string\": \"key\" }, { \"type\": 1, \"string\": \"read\" },\n            { \"type\": 1, \"string\": \"write\" }, { \"type\": 1, \"string\": \"execute\" }\n          ], \"mapValue\": [\n            { \"type\": 1, \"string\": \"retaint.l\" }, { \"type\": 8, \"boolean\": true },\n            { \"type\": 8, \"boolean\": true }, { \"type\": 8, \"boolean\": false }\n          ]},\n          { \"type\": 3, \"mapKey\": [\n            { \"type\": 1, \"string\": \"key\" }, { \"type\": 1, \"string\": \"read\" },\n            { \"type\": 1, \"string\": \"write\" }, { \"type\": 1, \"string\": \"execute\" }\n          ], \"mapValue\": [\n            { \"type\": 1, \"string\": \"retaint.h\" }, { \"type\": 8, \"boolean\": true },\n            { \"type\": 8, \"boolean\": true }, { \"type\": 8, \"boolean\": false }\n          ]},\n          { \"type\": 3, \"mapKey\": [\n            { \"type\": 1, \"string\": \"key\" }, { \"type\": 1, \"string\": \"read\" },\n            { \"type\": 1, \"string\": \"write\" }, { \"type\": 1, \"string\": \"execute\" }\n          ], \"mapValue\": [\n            { \"type\": 1, \"string\": \"BaseFtObject\" }, { \"type\": 8, \"boolean\": false },\n            { \"type\": 8, \"boolean\": true }, { \"type\": 8, \"boolean\": false }\n          ]},\n          { \"type\": 3, \"mapKey\": [\n            { \"type\": 1, \"string\": \"key\" }, { \"type\": 1, \"string\": \"read\" },\n            { \"type\": 1, \"string\": \"write\" }, { \"type\": 1, \"string\": \"execute\" }\n          ], \"mapValue\": [\n            { \"type\": 1, \"string\": \"retaintDebug\" }, { \"type\": 8, \"boolean\": true },\n            { \"type\": 8, \"boolean\": false }, { \"type\": 8, \"boolean\": false }\n          ]},\n          { \"type\": 3, \"mapKey\": [\n            { \"type\": 1, \"string\": \"key\" }, { \"type\": 1, \"string\": \"read\" },\n            { \"type\": 1, \"string\": \"write\" }, { \"type\": 1, \"string\": \"execute\" }\n          ], \"mapValue\": [\n            { \"type\": 1, \"string\": \"google_tag_data\" }, { \"type\": 8, \"boolean\": true },\n            { \"type\": 8, \"boolean\": false }, { \"type\": 8, \"boolean\": false }\n          ]}\n        ]}}\n      ]\n    },\n    \"clientAnnotations\": { \"isEditedByUser\": true },\n    \"isRequired\": true\n  },\n  {\n    \"instance\": {\n      \"key\": { \"publicId\": \"logging\", \"versionId\": \"1\" },\n      \"param\": [\n        { \"key\": \"environments\", \"value\": { \"type\": 1, \"string\": \"debug\" } }\n      ]\n    },\n    \"clientAnnotations\": { \"isEditedByUser\": true },\n    \"isRequired\": true\n  }\n]\n\n\n___TESTS___\n\nscenarios:\n- name: Initialize injects the snippet and queues configure\n  code: |-\n    const mockData = {\n      tagType: 'init',\n      orgId: 'ZWW2hX4SxCkJ64cVgyD2g',\n      snippetUrl: 'https://tracker.retaint.com/retaint.wl.js',\n      waitForConsent: false,\n      debug: false\n    };\n    mock('injectScript', (url, onSuccess) => {\n      assertThat(url).isEqualTo('https://tracker.retaint.com/retaint.wl.js');\n      onSuccess();\n    });\n    runCode(mockData);\n    assertApi('gtmOnSuccess').wasCalled();\n\n- name: Initialize defers injection when consent variable is false\n  code: |-\n    const mockData = {\n      tagType: 'init',\n      orgId: 'ZWW2hX4SxCkJ64cVgyD2g',\n      snippetUrl: 'https://tracker.retaint.com/retaint.wl.js',\n      waitForConsent: true,\n      consentVariable: false,\n      debug: false\n    };\n    let injected = false;\n    mock('injectScript', () => { injected = true; });\n    runCode(mockData);\n    assertThat(injected).isFalse();\n    assertApi('gtmOnSuccess').wasCalled();\n\n- name: Track string event pushes to queue\n  code: |-\n    const mockData = {\n      tagType: 'track',\n      eventName: 'addtocart',\n      valueType: 'string',\n      valueString: 'https://example.com/p/123',\n      debug: false\n    };\n    runCode(mockData);\n    assertApi('gtmOnSuccess').wasCalled();\n\n- name: Track array event flattens SIMPLE_TABLE rows\n  code: |-\n    const mockData = {\n      tagType: 'track',\n      eventName: 'buy',\n      valueType: 'array',\n      valueArray: [{ id: 'sku-1' }, { id: 'sku-2' }, { id: '' }],\n      debug: false\n    };\n    runCode(mockData);\n    assertApi('gtmOnSuccess').wasCalled();\n\n- name: Identify with no traits is a no-op success\n  code: |-\n    const mockData = { tagType: 'identify', debug: false };\n    runCode(mockData);\n    assertApi('gtmOnSuccess').wasCalled();\n\n- name: Identify strips empty fields\n  code: |-\n    const mockData = {\n      tagType: 'identify',\n      identifyEmail: 'jane@example.com',\n      identifyPhone: '',\n      identifyFullName: 'Jane Doe',\n      debug: false\n    };\n    runCode(mockData);\n    assertApi('gtmOnSuccess').wasCalled();\n\n- name: Product Index fails fast on missing required field\n  code: |-\n    const mockData = {\n      tagType: 'index',\n      indexProductId: 'sku-1',\n      indexTitle: '',\n      indexCanonicalUrl: 'https://example.com/p/1',\n      debug: false\n    };\n    runCode(mockData);\n    assertApi('gtmOnFailure').wasCalled();\n\n\n___NOTES___\n\nRetaint for Google Tag Manager — v1.0.0\n\nThis is a single tag template with four modes (Initialize / Track Event / Identify User / Product Index).\nThe Initialize tag should fire once on All Pages (Page View). Track/Identify/Product Index tags fire\non their respective dataLayer events (typically the GA4 ecommerce dataLayer that most sites already emit).\n\nSee https://retaint.com/integrations/gtm for the sample container and dataLayer contract.\n",
+        "galleryReference": {
+          "host": "github.com",
+          "owner": "tryumbrelladev",
+          "repository": "retaint-gtm",
+          "version": "v1.0.0",
+          "signature": "",
+          "templatePath": "template.tpl"
+        }
+      }
+    ],
+    "fingerprint": "0",
+    "tagManagerUrl": ""
+  }
+}
