@@ -8,7 +8,7 @@ The GTM counterpart to [`retaint-wp`](https://github.com/tryumbrelladev/retaint-
 
 ## Quick start
 
-1. Download `containers/retaint-ecommerce.json` from [the latest release](https://github.com/tryumbrelladev/retaint-gtm/releases).
+1. Download `containers/retaint-ecommerce.json` from [the latest release](https://github.com/dashtalk-engage/retaint-gtm/releases).
 2. In your GTM workspace: **Admin → Import Container**, choose the file, pick **Merge**.
 3. Open the **Retaint - Org ID** Constant variable, paste your Org ID, save.
 4. **Submit** and **Publish**.

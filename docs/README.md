@@ -7,7 +7,7 @@ Three ways to install, in order of recommended effort.
 The fastest path. Brings in the Retaint custom tag template plus all 10 tags, 8 triggers, and 14 variables pre-wired to the standard GA4 ecommerce dataLayer.
 
 1. In your GTM workspace, go to **Admin → Import Container**.
-2. Choose the file `containers/retaint-ecommerce.json` from this repo (or download the [latest release](https://github.com/tryumbrelladev/retaint-gtm/releases)).
+2. Choose the file `containers/retaint-ecommerce.json` from this repo (or download the [latest release](https://github.com/dashtalk-engage/retaint-gtm/releases)).
 3. Pick **Merge** (not Overwrite) and select **Create new versions of conflicting tags** (or merge into an empty workspace).
 4. Click **Confirm**.
 5. Open **Variables** → find the **Retaint - Org ID** Constant variable → click into it → replace `PASTE_YOUR_ORG_ID_HERE` with your real Org ID → **Save**.
