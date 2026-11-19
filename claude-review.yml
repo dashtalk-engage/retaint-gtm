@@ -1,0 +1,33 @@
+name: Claude PR Review
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]   # add "synchronize" to re-review on every push
+  issue_comment:
+    types: [created]                     # lets anyone with write access comment "@claude ..."
+
+jobs:
+  review:
+    # Auto-review non-draft PRs, or respond when someone mentions @claude on a PR/issue
+    if: |
+      (github.event_name == 'pull_request' && github.event.pull_request.draft == false) ||
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          # Uses your Claude Pro/Max subscription. Swap for anthropic_api_key if you use an API key instead.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Prompt only applies to automatic PR reviews; @claude comments use the comment text.
+          prompt: ${{ github.event_name == 'pull_request' && format('REPO {0}, PR #{1}. Review this pull request for bugs, security issues, performance problems and readability. Leave inline comments on specific lines and a short summary comment. Be concise; skip nitpicks.', github.repository, github.event.pull_request.number) || '' }}
+          claude_args: >-
+            --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
